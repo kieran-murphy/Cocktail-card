@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+  <title>Custom Bootstrap 4 card</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="./card.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<style>
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    font-size: 14px;
+    color: #666666;
+    font-family: "Open Sans";
+  }
+</style>
+
+<body>
+    
+  <div class="container">
+    <div class="row pt-5 m-auto">
+      <div class="col-md-6 col-lg-4 pb-3">
+
+        <!-- Copy the content below until next comment -->
+        
+        <!-- Copy until here -->
+
+      </div>
+      <div class="col-md-6 col-lg-4 pb-3">
+
+        <!-- Add a style="height: XYZpx" to div.card to limit the card height and display scrollbar instead -->
+        <div class="card card-custom bg-white border-white border-0" style="height: 450px">
+          <div class="card-custom-img" style="background-image: url(https://media.istockphoto.com/photos/modern-empty-night-bar-waiting-for-guests-picture-id1153582452?b=1&k=20&m=1153582452&s=170667a&w=0&h=Fmv07cJXdz9R1no_adrLdfnUhRclHc_y8ouYSDZHvvU=);"></div>
+          <div class="card-custom-avatar">
+            <img class="img-fluid" id="drinkImg" alt="Avatar" />
+          </div>
+          <div class="card-body" style="overflow-y: auto">
+            <h4 class="card-title"><span id="name"></span></h4>
+            
+            <!--
+            <ul>
+                <li><span id="ingOne"></span></li>
+                <li><span id="ingTwo"></span></li>
+                <li><span id="ingThree"></span></li>
+                <li><span id="ingFour"></span></li>
+                <li><span id="ingFive"></span></li> 
+                
+            </ul> -->
+
+            <p><span id="ingOne"></span></p>
+            <p><span id="ingTwo"></span></p>
+            <p><span id="ingThree"></span></p>
+            <p><span id="ingFour"></span></p>
+            <p><span id="ingFive"></span></p>
+            <p><span id="ingSix"></span></p>
+            <p><span id="ingSeven"></span></p>
+            <br>
+            
+
+            
+            <h5>Instructions:</h5>
+            <p class="card-text"><span id="instructions"></span></p>
+
+          </div>
+          <div class="card-footer" style="background: inherit; border-color: inherit;">
+            <a href="." class="btn btn-primary">Another</a>
+            
+          </div>
+        </div>
+    
+
+      </div>
+
+      
+      
+
+      
+    </div>
+  </div>
+
+  <script>
+    const api_url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+    async function getISS() {
+        const response = await fetch(api_url);
+        const data = await response.json();
+        
+        const drinkImg = data.drinks[0].strDrinkThumb;
+        const drinkName = data.drinks[0].strDrink;
+        const instructions = data.drinks[0].strInstructions;
+        const ingOne = data.drinks[0].strIngredient1;
+        const ingTwo = data.drinks[0].strIngredient2;
+        const ingThree = data.drinks[0].strIngredient3;
+        const ingFour = data.drinks[0].strIngredient4;
+        const ingFive = data.drinks[0].strIngredient5;
+        const ingSix = data.drinks[0].strIngredient6;
+        const ingSeven = data.drinks[0].strIngredient7;
+
+        
+        document.getElementById('drinkImg').src = drinkImg;
+        document.getElementById('name').textContent = drinkName;
+        document.getElementById('instructions').textContent = instructions;
+        document.getElementById('ingOne').textContent = ingOne;
+        document.getElementById('ingTwo').textContent = ingTwo;
+        document.getElementById('ingThree').textContent = ingThree;
+        document.getElementById('ingFour').textContent = ingFour;
+        document.getElementById('ingFive').textContent = ingFive;
+        document.getElementById('ingSix').textContent = ingSix;
+        document.getElementById('ingSeven').textContent = ingSeven;
+        
+    }
+    
+    getISS();
+
+    
+    
+</script>
+
+</body>
+
+</html>
